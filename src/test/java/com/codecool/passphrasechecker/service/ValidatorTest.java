@@ -16,14 +16,14 @@ class ValidatorTest {
 
     @BeforeEach
     void arrange() {
-        validator = new Validator();
         aspects = new ArrayList<>();
         aspects.add(new MultipleWordsAspect());
+        validator = new Validator(aspects);
     }
 
     @Test
     void validateWithValidPhraseTest() {
-        boolean isValid = validator.validate(VALID_PHRASE, aspects);
+        boolean isValid = validator.validate(VALID_PHRASE);
         assertTrue(isValid);
     }
 }
