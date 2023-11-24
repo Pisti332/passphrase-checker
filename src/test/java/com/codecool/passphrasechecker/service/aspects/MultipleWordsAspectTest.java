@@ -8,38 +8,46 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MultipleWordsAspectTest {
     private Aspect aspect;
+    private String phrase;
+    private boolean isValid;
     @BeforeEach
     void arrange() {
         aspect = new MultipleWordsAspect();
     }
     @Test
     void checkWithSimpleValidStringTest() {
-        String phrase = "korte alma mogyoro";
-        assertTrue(aspect.check(phrase));
+        phrase = "korte alma mogyoro";
+        isValid = aspect.check(phrase);
+        assertTrue(isValid);
     }
     @Test
     void checkWithSimpleInvalidStringTest() {
-        String phrase = "korte";
-        assertFalse(aspect.check(phrase));
+        phrase = "korte";
+        isValid = aspect.check(phrase);
+        assertFalse(isValid);
     }
     @Test
     void checkWithPrecedingSpaceTest() {
-        String phrase = " korte";
-        assertFalse(aspect.check(phrase));
+        phrase = " korte";
+        isValid = aspect.check(phrase);
+        assertFalse(isValid);
     }
     @Test
     void checkWithPrecedingAndTrailingSpaceInvalidTest() {
-        String phrase = " korte ";
-        assertFalse(aspect.check(phrase));
+        phrase = " korte ";
+        isValid = aspect.check(phrase);
+        assertFalse(isValid);
     }
     @Test
     void checkWithPrecedingAndTrailingSpaceMultipleWordsTest() {
-        String phrase = " korte alma";
-        assertFalse(aspect.check(phrase));
+        phrase = " korte alma";
+        isValid = aspect.check(phrase);
+        assertFalse(isValid);
     }
     @Test
     void checkWithMultipleMiddleSpaceMultipleWordsTest() {
-        String phrase = "korte   alma";
-        assertFalse(aspect.check(phrase));
+        phrase = "korte   alma";
+        isValid = aspect.check(phrase);
+        assertFalse(isValid);
     }
 }
