@@ -1,5 +1,6 @@
 package com.codecool.passphrasechecker.service.aspects;
 
+import com.codecool.passphrasechecker.service.aspects.utility.PunctuationRemover;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,7 @@ class DuplicateWordsAspectTest {
     private boolean isValid;
     @BeforeEach
     void init() {
-        duplicateWordsAspect = new DuplicateWordsAspect();
+        duplicateWordsAspect = new DuplicateWordsAspect(new PunctuationRemover());
     }
     @Test
     void checkWithValidInputAndPunctuation() {
