@@ -31,6 +31,6 @@ public class PassphraseChecker {
                 validLineCount++;
             }
         }
-        valueDisplay.showNumber(validLineCount);
+        valueDisplay.showNumberOfValidPhrases(validLineCount);
     }
 }

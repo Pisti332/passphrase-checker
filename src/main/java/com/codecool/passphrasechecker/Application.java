@@ -4,10 +4,7 @@ import com.codecool.passphrasechecker.io.FileReader;
 import com.codecool.passphrasechecker.io.TxtFileReader;
 import com.codecool.passphrasechecker.service.Aspect;
 import com.codecool.passphrasechecker.service.Validator;
-import com.codecool.passphrasechecker.service.aspects.ContainsOnlyAlphabetsCharacters;
-import com.codecool.passphrasechecker.service.aspects.DuplicateWordsAspect;
-import com.codecool.passphrasechecker.service.aspects.HasEndOfSentencePunctuation;
-import com.codecool.passphrasechecker.service.aspects.MultipleWordsAspect;
+import com.codecool.passphrasechecker.service.aspects.*;
 import com.codecool.passphrasechecker.service.aspects.utility.PunctuationRemover;
 import com.codecool.passphrasechecker.ui.ConsoleWriter;
 import com.codecool.passphrasechecker.ui.ValueDisplay;
@@ -25,6 +22,7 @@ public class Application {
         aspects.add(new HasEndOfSentencePunctuation());
         aspects.add(new DuplicateWordsAspect(new PunctuationRemover()));
         aspects.add(new ContainsOnlyAlphabetsCharacters(new PunctuationRemover()));
+        aspects.add(new LowerCaseAspect());
         Validator validator = new Validator(aspects);
         PassphraseChecker passphraseChecker = new PassphraseChecker(fileReader, inputFilePath, valueDisplay, validator);
 
