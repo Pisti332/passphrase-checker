@@ -2,11 +2,18 @@ package com.codecool.passphrasechecker.service.aspects;
 
 import com.codecool.passphrasechecker.model.EndOfSentencePunctuations;
 import com.codecool.passphrasechecker.service.Aspect;
+import com.codecool.passphrasechecker.service.aspects.utility.PunctuationRemover;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class DuplicateWordsAspect implements Aspect {
+    private PunctuationRemover punctuationRemover;
+
+    public DuplicateWordsAspect(PunctuationRemover punctuationRemover) {
+        this.punctuationRemover = punctuationRemover;
+    }
+
     @Override
     public boolean check(String phrase) {
         return checkIfOnlyUniqueWords(phrase);
@@ -14,7 +21,7 @@ public class DuplicateWordsAspect implements Aspect {
 
     private boolean checkIfOnlyUniqueWords(String phrase) {
         String[] words = phrase.split(" ");
-        removePunctuation(words);
+        punctuationRemover.removePunctuation(words);
         Map<String, Integer> wordsAppearance = new HashMap<>();
         for (String word : words) {
             if (wordsAppearance.get(word) != null) {
@@ -25,15 +32,5 @@ public class DuplicateWordsAspect implements Aspect {
             }
         }
         return true;
-    }
-    private void removePunctuation(String[] words) {
-        String lastWord = words[words.length - 1];
-        char lastChar = lastWord.charAt(lastWord.length() - 1);
-        for (EndOfSentencePunctuations punctuation : EndOfSentencePunctuations.values()) {
-            if (punctuation.getValue() == lastChar) {
-                words[words.length - 1] = lastWord.substring(0, lastWord.length() - 1);
-                break;
-            }
-        }
     }
 }
