@@ -11,7 +11,7 @@ class DuplicateWordsAspectTest {
     private DuplicateWordsAspect duplicateWordsAspect;
     private boolean isValid;
     @BeforeEach
-    void init() {
+    void arrange() {
         duplicateWordsAspect = new DuplicateWordsAspect(new PunctuationRemover());
     }
     @Test

@@ -14,7 +14,7 @@ class TxtFileReaderTest {
     private static final int INPUT_FILE_CONTENT_LENGTH = 6;
     private static FileReader fileReader;
     @BeforeEach
-    void init() {
+    void arrange() {
         fileReader = new TxtFileReader();
     }
 

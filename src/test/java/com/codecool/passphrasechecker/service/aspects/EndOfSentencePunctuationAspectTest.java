@@ -13,7 +13,7 @@ class EndOfSentencePunctuationAspectTest {
     private boolean isValid;
 
     @BeforeEach
-    void init() {
+    void arrange() {
         endOfSentencePunctuationAspect = new EndOfSentencePunctuationAspect();
     }
     @Test

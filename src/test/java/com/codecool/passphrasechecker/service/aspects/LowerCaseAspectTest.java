@@ -10,7 +10,7 @@ class LowerCaseAspectTest {
     private boolean isValid;
     private LowerCaseAspect lowerCaseAspect;
     @BeforeEach
-    void init() {
+    void arrange() {
         lowerCaseAspect = new LowerCaseAspect();
     }
     @Test

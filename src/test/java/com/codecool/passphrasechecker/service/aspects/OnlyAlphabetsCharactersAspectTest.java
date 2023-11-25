@@ -11,7 +11,7 @@ class OnlyAlphabetsCharactersAspectTest {
     private OnlyAlphabetsCharactersAspect onlyAlphabetsCharactersAspect;
     private boolean isValid;
     @BeforeEach
-    void init() {
+    void arrange() {
         onlyAlphabetsCharactersAspect = new OnlyAlphabetsCharactersAspect(new PunctuationRemover());
     }
     @Test
