@@ -6,42 +6,42 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ContainsOnlyAlphabetsCharactersTest {
+class OnlyAlphabetsCharactersAspectTest {
 
-    private ContainsOnlyAlphabetsCharacters containsOnlyAlphabetsCharacters;
+    private OnlyAlphabetsCharactersAspect onlyAlphabetsCharactersAspect;
     private boolean isValid;
     @BeforeEach
     void init() {
-        containsOnlyAlphabetsCharacters = new ContainsOnlyAlphabetsCharacters(new PunctuationRemover());
+        onlyAlphabetsCharactersAspect = new OnlyAlphabetsCharactersAspect(new PunctuationRemover());
     }
     @Test
     void checkWithValidCharacters() {
         String phrase = "alma";
-        isValid = containsOnlyAlphabetsCharacters.check(phrase);
+        isValid = onlyAlphabetsCharactersAspect.check(phrase);
         assertTrue(isValid);
     }
     @Test
     void checkWithInvalidCharacters() {
         String phrase = "banán";
-        isValid = containsOnlyAlphabetsCharacters.check(phrase);
+        isValid = onlyAlphabetsCharactersAspect.check(phrase);
         assertFalse(isValid);
     }
     @Test
     void checkWithValidCharactersAndPunctuation() {
         String phrase = "alma.";
-        isValid = containsOnlyAlphabetsCharacters.check(phrase);
+        isValid = onlyAlphabetsCharactersAspect.check(phrase);
         assertTrue(isValid);
     }
     @Test
     void checkWithValidCharactersAndMultipleWordsAndPunctuation() {
         String phrase = "korte alma!";
-        isValid = containsOnlyAlphabetsCharacters.check(phrase);
+        isValid = onlyAlphabetsCharactersAspect.check(phrase);
         assertTrue(isValid);
     }
     @Test
     void checkWithInvalidCharactersAndMultipleWordsAndPunctuation() {
         String phrase = "körte alma!";
-        isValid = containsOnlyAlphabetsCharacters.check(phrase);
+        isValid = onlyAlphabetsCharactersAspect.check(phrase);
         assertFalse(isValid);
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public class PassphraseChecker {
     private final FileReader fileReader;
     private final ValueDisplay valueDisplay;
-    private String inputFilePath;
+    private final String inputFilePath;
     private final Validator validator;
 
     public PassphraseChecker(FileReader fileReader,

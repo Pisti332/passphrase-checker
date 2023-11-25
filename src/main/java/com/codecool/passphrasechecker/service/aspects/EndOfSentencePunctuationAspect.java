@@ -3,7 +3,7 @@ package com.codecool.passphrasechecker.service.aspects;
 import com.codecool.passphrasechecker.model.EndOfSentencePunctuations;
 import com.codecool.passphrasechecker.service.Aspect;
 
-public class HasEndOfSentencePunctuation implements Aspect {
+public class EndOfSentencePunctuationAspect implements Aspect {
     @Override
     public boolean check(String phrase) {
         return checkIfHasEndOfSentencePunctuation(phrase);

@@ -3,11 +3,11 @@ package com.codecool.passphrasechecker.service.aspects;
 import com.codecool.passphrasechecker.service.Aspect;
 import com.codecool.passphrasechecker.service.aspects.utility.PunctuationRemover;
 
-public class ContainsOnlyAlphabetsCharacters implements Aspect {
+public class OnlyAlphabetsCharactersAspect implements Aspect {
     private PunctuationRemover punctuationRemover;
 
     private final static String ENGLISH_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    public ContainsOnlyAlphabetsCharacters(PunctuationRemover punctuationRemover) {
+    public OnlyAlphabetsCharactersAspect(PunctuationRemover punctuationRemover) {
         this.punctuationRemover = punctuationRemover;
     }
 

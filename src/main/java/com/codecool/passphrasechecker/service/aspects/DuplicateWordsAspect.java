@@ -1,6 +1,5 @@
 package com.codecool.passphrasechecker.service.aspects;
 
-import com.codecool.passphrasechecker.model.EndOfSentencePunctuations;
 import com.codecool.passphrasechecker.service.Aspect;
 import com.codecool.passphrasechecker.service.aspects.utility.PunctuationRemover;
 
