@@ -18,10 +18,11 @@ public class Application {
         String inputFilePath = "src/main/resources/input";
         ValueDisplay valueDisplay = new ConsoleWriter();
         List<Aspect> aspects = new ArrayList<>();
+        PunctuationRemover punctuationRemover = new PunctuationRemover();
         aspects.add(new MultipleWordsAspect());
-        aspects.add(new HasEndOfSentencePunctuation());
-        aspects.add(new DuplicateWordsAspect(new PunctuationRemover()));
-        aspects.add(new ContainsOnlyAlphabetsCharacters(new PunctuationRemover()));
+        aspects.add(new EndOfSentencePunctuationAspect());
+        aspects.add(new DuplicateWordsAspect(punctuationRemover));
+        aspects.add(new OnlyAlphabetsCharactersAspect(punctuationRemover));
         aspects.add(new LowerCaseAspect());
         Validator validator = new Validator(aspects);
         PassphraseChecker passphraseChecker = new PassphraseChecker(fileReader, inputFilePath, valueDisplay, validator);
