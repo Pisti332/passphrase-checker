@@ -23,14 +23,20 @@ public class PassphraseChecker {
     }
 
     public void run() {
-        int validLineCount = 0;
-        List<String> lines = this.fileReader.readByLines(this.inputFilePath);
-        for (String line : lines) {
-            boolean isLineValid = validator.validate(line);
-            if (isLineValid) {
-                validLineCount++;
+        try {
+            int validLineCount = 0;
+            List<String> lines = this.fileReader.readByLines(this.inputFilePath);
+            for (String line : lines) {
+                boolean isLineValid = validator.validate(line);
+                if (isLineValid) {
+                    validLineCount++;
+                }
             }
+            valueDisplay.showNumberOfValidPhrases(validLineCount);
         }
-        valueDisplay.showNumberOfValidPhrases(validLineCount);
+        catch (Exception e) {
+            valueDisplay.showGeneralError();
+        }
+
     }
 }

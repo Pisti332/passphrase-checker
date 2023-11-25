@@ -6,4 +6,10 @@ public class ConsoleWriter implements ValueDisplay {
         String outputPhrase = "Helyes jelmondatok szama: ";
         System.out.println(outputPhrase + number);
     }
+
+    @Override
+    public void showGeneralError() {
+        String generalErrorMessage = "Varatlan hiba tortent!";
+        System.out.println(generalErrorMessage);
+    }
 }
